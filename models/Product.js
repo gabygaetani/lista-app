@@ -2,11 +2,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
-    name: { type: String, default: '', required: 'Please fill ProductCategory name', trim: true },
-    description: { type: String, trim: true }, 
-    created_at: { type: Date, default: Date.now },
-  	updated_at: { type: Date, default: Date.now },
-  	productCategory: { type: Schema.ObjectId },
+    name: { type: String, default: '', required: 'Please fill ProductCategory name', trim: true }, // descripcion corta del producto
+    description: { type: String, trim: true }, // descripcion larga del producto
+    minprice: { type: Integer, default: 0}, // indica el valor inferior del rango de precio
+    maxprice: { type: Integer, default: 0}, // indica el valor superior del rango de precio
+    completed: { type: Boolean, default: False}, // indica si el regalo es total o parcial
+    created_at: { type: Date, default: Date.now }, // fecha creación. Control de cambios
+  	updated_at: { type: Date, default: Date.now }, // fecha actualización. Control de cambios
+  	productCategory: { type: Schema.ObjectId }, // categoría a la que pertenece el producto
   	// Como las categorias estan dentro de los tipos de eventos, imagino que los ids se pueden repetir en distintos tipos de evento, por eso agregue el eventType
   	eventType: {
     	type: Schema.ObjectId,
