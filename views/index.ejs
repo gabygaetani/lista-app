@@ -1,11 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
-    <title><%= title %></title>
+    <title>Mi Lista</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Lista de Casamiento</h1>
+
+    <ng-view></ng-view>
+
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
+
+    <!-- Template -->
+    <script type="text/ng-template" id="/products.html">
+      Search: <input type="text" ng-model="search.name">
+      <ul>
+        <li ng-repeat="product in products | filter: search">
+          <input type="checkbox" ng-model="product.completed" ng-change="update($index)">
+          <a ng-show="!editing[$index]" href="#/{{product._id}}">{{product.name}}</a>
+          <button ng-show="!editing[$index]" ng-click="edit($index)">edit</button>
+
+          <input ng-show="editing[$index]" type="text" ng-model="product.name">
+          <button ng-show="editing[$index]" ng-click="update($index)">Update</button>
+          <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button>
+          <button ng-show="!editing[$index]" ng-click="remove($index)">remove</button>
+        </li>
+      </ul>
+      New task <input type="text" ng-model="newProduct"><button ng-click="save()">Create</button>
+    </script>
+
+    <!-- <script type="text/ng-template" id="/todoDetails.html">
+      <h1>{{ todo.name }}</h1>
+      completed: <input type="checkbox" ng-model="todo.completed"><br>
+      note: <textarea ng-model="todo.note"></textarea><br><br>
+
+      <button ng-click="update()">Update</button>
+      <button ng-click="remove()">Remove</button>
+      <a href="/">Cancel</a>
+    </script> -->
+
+
+    <script>
+      angular.module('app', ['ngRoute', 'ngResource'])
+        //---------------
+        // Services
+        //---------------
+        .factory('Products', ['$resource', function($resource){
+          return $resource('/products/:id', null, {
+            'update': { method:'PUT' }
+          });
+        }])
+        //---------------
+        // Controllers
+        //---------------
+        .controller('ProductController', ['$scope', 'Products', function ($scope, Products) {
+          $scope.editing = [];
+          $scope.products = Products.query();
+          $scope.save = function(){
+            if(!$scope.newProduct || $scope.newProduct.length < 1) return;
+            var product = new Products({ name: $scope.newProduct, completed: false });
+            todo.$save(function(){
+              $scope.products.push(product);
+              $scope.newProduct = ''; // clear textbox
+            });
+          }
+          $scope.update = function(index){
+            var product = $scope.products[index];
+            Todos.update({id: product._id}, product);
+            $scope.editing[index] = false;
+          }
+          $scope.edit = function(index){
+            $scope.editing[index] = angular.copy($scope.products[index]);
+          }
+          $scope.cancel = function(index){
+            $scope.products[index] = angular.copy($scope.editing[index]);
+            $scope.editing[index] = false;
+          }
+          $scope.remove = function(index){
+            var product = $scope.products[index];
+            Todos.remove({id: product._id}, function(){
+              $scope.products.splice(index, 1);
+            });
+          }
+        }])
+      
+      //.controller('TodoDetailCtrl', ['$scope', '$routeParams', 'Todos', '$location', function ($scope, $routeParams, Todos, $location) {
+        //  $scope.todo = Todos.get({id: $routeParams.id });
+        //  $scope.remove = function(){
+        //    Todos.remove({id: $scope.todo._id}, function(){
+        //      $location.url('/');
+        //    });
+        //  }
+        // }]) -->
+          
+        //---------------
+        // Routes
+        //---------------
+        .config(['$routeProvider', function ($routeProvider) {
+          $routeProvider
+            .when('/', {
+              templateUrl: '/products.html',
+              controller: 'ProductController'
+            })
+           // .when('/:id', {
+           //   templateUrl: '/todoDetails.html',
+             // controller: 'TodoDetailCtrl'
+           //})
+          ;
+        }]);
+    </script>
   </body>
 </html>
