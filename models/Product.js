@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
     name: { type: String, default: '', required: 'Please fill ProductCategory name', trim: true }, // descripcion corta del producto
-    description: { type: String, trim: true }, // descripcion larga del producto
+    description: { type: String, trim: true, default: '' }, // descripcion larga del producto
+    picture: { type: String, default: ''},
     minprice: { type: Number, default: 0}, // indica el valor inferior del rango de precio
     maxprice: { type: Number, default: 0}, // indica el valor superior del rango de precio
     completed: { type: Boolean, default: Boolean.true}, // indica si el regalo es total o parcial
