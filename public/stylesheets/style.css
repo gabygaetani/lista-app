@@ -1,8 +1,20 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00B7FF;
-}
+.contenedor{ max-width: 90%; margin: auto}
+.cabeceraViajes {position: relative; margin-bottom: 50px;}
+.cabeceraViajes h1 {width: 100%; top: 10%; position: absolute; margin-left: 50px;
+                    font-family: 'Cinzel', serif; color: black; font-size: 100px;}
+img{max-width: 100%; margin: auto}
+.productlist{max-width: 90%;  
+   overflow: hidden;
+   position: relative;
+   width: 30%;
+   display: inline-block;
+   margin: 0 15px;}
+
+.productlist h2, h3, h4{font-family: 'Open Sans Condensed', sans-serif; font-size: 30px; text-align: center; padding: 30px 0px;}
+.productlist h3{font-size: 20px; }
+.productlist h4{display: block; text-align: center; padding: 20px 0px;; background: #90FFDB;}
+
+.footer{background: #D2D1E8; padding: 50px 0px; overflow: hidden; font-family: 'Barrio', cursive; margin-top: 70px;}
+.footer ul{float: left; padding: 0px 50px; color: black; font-size: 40px; text-align: center; width: 70%;}
+.footer p{text-align: left; color: black; font-size: 40px; text-decoration: underline;}
