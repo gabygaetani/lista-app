@@ -53,7 +53,7 @@
             'update': { method:'PUT' }
           });
         }])
-        //---------------
+         //---------------
         // Controllers
         //---------------
         .controller('ProductController', ['$scope', 'Products', function ($scope, Products) {
@@ -62,14 +62,14 @@
           $scope.save = function(){
             if(!$scope.newProduct || $scope.newProduct.length < 1) return;
             var product = new Products({ name: $scope.newProduct, completed: false });
-            todo.$save(function(){
+            product.$save(function(){
               $scope.products.push(product);
               $scope.newProduct = ''; // clear textbox
             });
           }
           $scope.update = function(index){
             var product = $scope.products[index];
-            Todos.update({id: product._id}, product);
+            Products.update({id: product._id}, product);
             $scope.editing[index] = false;
           }
           $scope.edit = function(index){
@@ -81,7 +81,7 @@
           }
           $scope.remove = function(index){
             var product = $scope.products[index];
-            Todos.remove({id: product._id}, function(){
+            Products.remove({id: product._id}, function(){
               $scope.products.splice(index, 1);
             });
           }
