@@ -1,0 +1,82 @@
+{
+    "_id" : ObjectId("5909d9c68400eb2cb0dfb3b6"),
+    "completed" : false,
+    "updated_at" : ISODate("2017-05-03T13:23:18.526Z"),
+    "created_at" : ISODate("2017-05-03T13:23:18.526Z"),
+    "minprice" : 1000,
+    "maxprice" : 4000,
+    "picture" : "/images/avionparis.jpg",
+    "name" : "Vuelo a Paris",
+    "description" : "El punto de partida de nuestro regalo más deseado, el Vuelo que nos lleva a destino!",
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5909d9cd8400eb2cb0dfb3b7"),
+    "completed" : false,
+    "updated_at" : ISODate("2017-05-03T13:23:25.819Z"),
+    "created_at" : ISODate("2017-05-03T13:23:25.819Z"),
+    "minprice" : 100,
+    "maxprice" : 500,
+    "name" : "Cena en Le Jules Verne",
+    "picture" : "/images/cenaparis1.jpg",
+    "description" : "Que romantico! La cena más esperada de nuestra vida... será un sueño hecho realidad...",
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5909d9d48400eb2cb0dfb3b8"),
+    "completed" : false,
+    "updated_at" : ISODate("2017-05-03T13:23:32.083Z"),
+    "created_at" : ISODate("2017-05-03T13:23:32.083Z"),
+    "maxprice" : 2000,
+    "minprice" : 500,
+    "name" : "Noche en hotel Shangri",
+    "picture" : "/images/nochehotel.jpg",
+    "description" : "Uno de los hoteles más lindos de París y nuestra oportunidad de conocerlo! Más detalles no daremos...",
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5909d9dd8400eb2cb0dfb3b9"),
+    "completed" : false,
+    "updated_at" : ISODate("2017-05-03T13:23:41.258Z"),
+    "created_at" : ISODate("2017-05-03T13:23:41.258Z"),
+    "maxprice" : 80,
+    "minprice" : 20,
+    "name" : "Paseo por el río Sena",
+    "picture" : "/images/paseosena.jpg",
+    "description" : "Mucho romanticismo pero también queremos pasear! Nuestra oportunidad de conocer esta maravillosa ciudad",
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5915fbae28d34600acf7d225"),
+    "completed" : false,
+    "updated_at" : ISODate("2017-05-12T18:15:10.422Z"),
+    "created_at" : ISODate("2017-05-12T18:15:10.422Z"),
+    "maxprice" : 100,
+    "minprice" : 60,
+    "name" : "Museo del Louvre",
+    "picture" : "/images/museolouvre.jpg",
+    "description" : "Y si, también somos cultos y más en París!! Museo Museo allá vamos!!",
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("591cbae5ac088918047ffc1d"),
+    "completed" : false,
+    "updated_at" : ISODate("2017-05-17T21:04:37.532Z"),
+    "created_at" : ISODate("2017-05-17T21:04:37.532Z"),
+    "maxprice" : 1000,
+    "minprice" : 1000,
+    "picture" : "images/nosotras.jpg",
+    "name" : "Nosotras IT",
+    "description" : "Cuánto chamuyo!! Vamos las IT!!!",
+    "__v" : 0
+}
