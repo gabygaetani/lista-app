@@ -2,20 +2,51 @@
 <html ng-app="app">
   <head>
     <title>Mi Lista</title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barrio|Josefin+Sans|Open+Sans+Condensed:300" rel="stylesheet">
   </head>
   <body>
-    <h1>Lista de Casamiento</h1>
+    <section class="cabeceraViajes contenedor"> 
+        <img src="/images/torre2.jpg" alt="viajes">    
+        <h1>Viaje</h1>
+    </section> 
+    
+      <ng-view></ng-view>
 
-    <ng-view></ng-view>
-
+      
     <!-- Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
+      
 
-    <!-- Template -->
-    <script type="text/ng-template" id="/products.html">
+      <div class="contenedor" ng-controller="ProductController">
+        <div class="productlist" ng-repeat="product in products">
+         
+                <h2>{{ product.name }}</h2>
+                <img ng-src="{{ product.picture }}" alt="imagen Producto">
+                <h3>{{ product.description }}</h3>
+                <h4>USD {{ product.minprice }} - {{ product.maxprice }}</h4>
+  
+      </div>
+          
+      <section class="footer">
+          <ul>
+              <li>INE</li>
+              <li>NOE</li>
+              <li>GABY</li>
+          </ul>
+          <p>IT</p>
+      </section>      
+      
+      
+    <!-- Template 
+    <script type="text/ng-template" id="/index.ejs">
+    
+    
+    
       Search: <input type="text" ng-model="search.name">
       <ul>
         <li ng-repeat="product in products | filter: search">
@@ -30,7 +61,7 @@
         </li>
       </ul>
       New task <input type="text" ng-model="newProduct"><button ng-click="save()">Create</button>
-    </script>
+    </script>-->
 
     <!-- <script type="text/ng-template" id="/todoDetails.html">
       <h1>{{ todo.name }}</h1>
@@ -53,7 +84,7 @@
             'update': { method:'PUT' }
           });
         }])
-         //---------------
+        //---------------
         // Controllers
         //---------------
         .controller('ProductController', ['$scope', 'Products', function ($scope, Products) {
@@ -102,7 +133,7 @@
         .config(['$routeProvider', function ($routeProvider) {
           $routeProvider
             .when('/', {
-              templateUrl: '/products.html',
+              templateUrl: '/index.ejs',
               controller: 'ProductController'
             })
            // .when('/:id', {
