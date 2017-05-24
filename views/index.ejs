@@ -21,7 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
       
-
+<script type="text/ng-template" id="/index.ejs">
       <div class="contenedor" ng-controller="ProductController">
         <div class="productlist" ng-repeat="product in products">
          
@@ -31,7 +31,7 @@
                 <h4>USD {{ product.minprice }} - {{ product.maxprice }}</h4>
   
       </div>
-          
+   </script>       
       <section class="footer">
           <ul>
               <li>INE</li>
